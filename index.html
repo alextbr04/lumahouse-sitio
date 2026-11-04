@@ -9,18 +9,18 @@
 <meta property="og:description" content="Producción audiovisual con intención. Cine para el golf y para marcas premium.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://lumahouse.com.mx/assets/logo/Luma_Avatar_LhPunto_Ink_circular_1024.png">
-<meta name="theme-color" content="#14130F">
+<meta name="theme-color" content="#F3EFE6">
 <link rel="icon" type="image/png" href="assets/logo/Luma_Avatar_LhPunto_Ink_circular_1024.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;1,9..144,300&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/luma.css?v=20261103l">
+<link rel="stylesheet" href="assets/css/luma.css?v=20261104b">
 </head>
 <body data-page="inicio">
 
 <header class="nav">
   <div class="wrap">
-    <a class="nav__logo" href="./" aria-label="Luma House"><img src="assets/logo/Luma_Lockup_Punto_Bone.svg" alt="Luma House"></a>
+    <a class="nav__logo" href="./" aria-label="Luma House"><img src="assets/logo/Luma_Lockup_Punto_Ink.svg" alt="Luma House"></a>
     <nav class="nav__links" aria-label="Principal">
       <a href="#trabajo" data-i18n="nav.work">Trabajo</a>
       <a href="#estudio" data-i18n="nav.studio">Estudio</a>
@@ -47,13 +47,19 @@
     <div class="wrap">
       <p class="eyebrow" data-i18n="hero.eyebrow">Casa productora · México</p>
       <h1 data-i18n="hero.title">Producción audiovisual <em>con intención.</em></h1>
-      <p class="hero__sub" data-i18n="hero.sub">Cine para el golf y para las marcas que saben que su imagen vale tanto como su producto.</p>
+      <div class="hero__foot">
+        <p class="hero__sub" data-i18n="hero.sub">Cine para el golf y para las marcas que saben que su imagen vale tanto como su producto.</p>
+        <div class="hero__meta">
+          <p class="mono" data-i18n="hero.meta">Torneos · Clubes · Documental · Marcas premium</p>
+          <a class="mono hero__scroll" href="#trabajo"><span data-i18n="hero.cta1">Ver trabajo</span> <i aria-hidden="true">↓</i></a>
+        </div>
+      </div>
     </div>
   </section>
 
   <section class="reel" id="trabajo" aria-label="Trabajo">
     <div class="wrap reel__head">
-      <p class="eyebrow" data-i18n="work.eyebrow">Trabajo</p>
+      <p class="eyebrow" data-n="01" data-i18n="work.eyebrow">Trabajo</p>
       <div class="reel__nav">
         <span class="mono reel__count" data-reel-count>01 / 01</span>
         <button class="reel__btn" type="button" data-reel-prev aria-label="Anterior">←</button>
@@ -66,21 +72,21 @@
   <section class="section section--bone" id="estudio">
     <div class="wrap split">
       <div class="reveal">
-        <p class="eyebrow" data-i18n="studio.eyebrow">Estudio</p>
+        <p class="eyebrow" data-n="02" data-i18n="studio.eyebrow">Estudio</p>
         <h2 data-i18n="studio.title">El lujo no siempre grita.</h2>
       </div>
       <div class="manifiesto reveal">
         <p data-i18n="studio.p1"></p>
         <p data-i18n="studio.p2"></p>
-        <p data-i18n="studio.p3"></p>
       </div>
     </div>
+    <div class="wrap"><p class="statement reveal" data-i18n="studio.p3"></p></div>
   </section>
 
-  <section class="section section--bone" id="servicios" style="padding-top:0">
+  <section class="section section--bone" id="servicios">
     <div class="wrap">
       <div class="reveal">
-        <p class="eyebrow" data-i18n="services.eyebrow">Servicios</p>
+        <p class="eyebrow" data-n="03" data-i18n="services.eyebrow">Servicios</p>
         <h2 data-i18n="services.title">Cuatro formas de trabajar con nosotros</h2>
       </div>
       <div class="services">
@@ -92,10 +98,10 @@
     </div>
   </section>
 
-  <section class="section section--bone" id="paquetes" style="padding-top:0">
+  <section class="section section--bone section--rule" id="paquetes">
     <div class="wrap">
       <div class="reveal">
-        <p class="eyebrow" data-i18n="plans.eyebrow">Paquetes mensuales</p>
+        <p class="eyebrow" data-n="04" data-i18n="plans.eyebrow">Paquetes mensuales</p>
         <h2 data-i18n="plans.title">Contenido cada mes</h2>
         <p class="lead plans__lead" data-i18n="plans.sub">Producción continua para tus redes, con el mismo criterio cinematográfico.</p>
       </div>
@@ -132,9 +138,9 @@
     </div>
   </section>
 
-  <section class="section contact" id="contacto" style="padding-top:40px">
+  <section class="section contact" id="contacto">
     <div class="wrap">
-      <p class="eyebrow reveal" data-i18n="contact.eyebrow">Contacto</p>
+      <p class="eyebrow reveal" data-n="05" data-i18n="contact.eyebrow">Contacto</p>
       <h2 class="reveal" data-i18n="contact.title">Cuéntanos qué quieres comunicar.</h2>
       <p class="lead reveal" style="color:var(--bone-soft); margin-top:22px" data-i18n="contact.sub"></p>
       <div class="contact__rows">
@@ -217,13 +223,13 @@
 
 <footer class="footer">
   <div class="wrap">
-    <img src="assets/logo/Luma_Firma_Punto_Bone.svg" alt="Luma">
+    <img src="assets/logo/Luma_Firma_Punto_Ink.svg" alt="Luma">
     <p><span data-i18n="footer.line">Luma House · Casa productora · México</span><br>© <span data-year>2026</span> Luma House S. de R.L. de C.V.<br><a href="https://instagram.com/madebyluma" target="_blank" rel="noopener">@madebyluma</a> · <a href="https://wa.me/524424222658" target="_blank" rel="noopener">WhatsApp</a> · <a href="mailto:contacto@lumahouse.com.mx">contacto@lumahouse.com.mx</a></p>
   </div>
 </footer>
 
 <script src="assets/js/proyectos.js?v=20261103g"></script>
 <script src="assets/js/videos.js?v=684c1147ca"></script>
-<script src="assets/js/site.js?v=20261104a"></script>
+<script src="assets/js/site.js?v=20261104b"></script>
 </body>
 </html>
