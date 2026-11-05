@@ -35,6 +35,12 @@ window.LUMA_VIDEOS = {
       "tipo": "wistia",
       "vertical": true
     },
+    "copa-zibata": {
+      "id": "7sn4e6uyac",
+      "poster": "https://embed-ssl.wistia.com/deliveries/50d00d464507772c47dae656267e049107d42154.jpg?image_crop_resized=1600x900",
+      "tipo": "wistia",
+      "vertical": false
+    },
     "el-bosque-country-club": {
       "id": "68ha3xv9mw",
       "poster": "https://embed-ssl.wistia.com/deliveries/fd99c2fc6851cc86b689923c6352fb8e4e06d709.jpg?image_crop_resized=1600x900",
