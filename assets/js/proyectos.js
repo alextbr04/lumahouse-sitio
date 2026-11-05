@@ -173,3 +173,18 @@ window.LUMA_PROYECTOS = [
 window.LUMA_AJUSTES = {
   "comercial-luma-vertical-bts": { poster: "comercial-luma-vertical-bts.jpg", laterales: true }   // camarógrafo grabando junto al lago (seg. 24.8)
 };
+
+/* Orden del carrusel del inicio (ids). Las verticales van intercaladas, no al final.
+   Lo que no esté aquí se agrega al final en el orden del catálogo. */
+window.LUMA_ORDEN = [
+  "campanario-championship",
+  "maderas-golf-club",            // vertical
+  "hacienda-cantalagua",
+  "el-bosque-country-club",
+  "comercial-luma-vertical-bts",  // vertical
+  "copa-zibata",
+  "zirandaro-lifestyle",
+  "torneo-hormann",
+  "torneo-maria-goretti",
+  "produccion-original"
+];

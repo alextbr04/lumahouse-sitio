@@ -111,6 +111,11 @@
   });
   var PROYECTOS = CATALOGO.filter(function (p) { return p.visible && !p.bloqueado; })
     .concat(CATALOGO.filter(function (p) { return p.visible && p.bloqueado; }));
+  var ORDEN = window.LUMA_ORDEN || [];
+  function ordenReel(list) {
+    var pos = function (p) { var i = ORDEN.indexOf(p.id); return i < 0 ? 1000 + list.indexOf(p) : i; };
+    return list.slice().sort(function (a, b) { return pos(a) - pos(b); });
+  }
   var lang = "es";
 
   function readLang() {
@@ -211,7 +216,12 @@
     document.querySelectorAll("[data-grid]").forEach(function (grid) {
       var mode = grid.getAttribute("data-grid");
       if (mode === "reel") {
-        grid.innerHTML = PROYECTOS.map(slideHTML).join("");
+        var REEL = ordenReel(PROYECTOS);
+        var set = REEL.map(slideHTML).join("");
+        var copia = set.replace(/ id="[^"]*"/g, ' data-copia="1" aria-hidden="true" tabindex="-1"');
+        grid.innerHTML = copia + set + copia;
+        grid.dataset.n = REEL.length;
+        reelHome();
         reelCount();
       } else {
         var list = mode === "destacados" ? destacados() : PROYECTOS.filter(function (p) {
@@ -245,6 +255,26 @@
 
   /* ---------------- carrusel ---------------- */
   var track = document.querySelector('[data-grid="reel"]');
+  function reelN() { return track ? (+track.dataset.n || track.children.length) : 0; }
+  function setWidth() { var n = reelN(); return track.children[n].offsetLeft - track.children[0].offsetLeft; }
+  // pone el carrusel en la copia del centro, sin animación
+  function reelHome() {
+    if (!track || track.children.length < 3) return;
+    var b = track.style.scrollBehavior; track.style.scrollBehavior = "auto";
+    track.scrollLeft = setWidth();
+    track.style.scrollBehavior = b;
+  }
+  // si te sales de la copia del centro, te regresa a la misma pieza en el centro (no se nota)
+  function reelWrap() {
+    if (!track || track.children.length < 3 || playing || animando) return;
+    var w = setWidth(), x = track.scrollLeft;
+    if (x < w * 0.5 || x >= w * 1.5) {
+      var b = track.style.scrollBehavior; track.style.scrollBehavior = "auto";
+      var snap = track.style.scrollSnapType; track.style.scrollSnapType = "none";
+      track.scrollLeft = x < w * 0.5 ? x + w : x - w;
+      track.style.scrollSnapType = snap; track.style.scrollBehavior = b;
+    }
+  }
   function reelIndex() {
     if (!track || !track.children.length) return 0;
     var x = track.scrollLeft, best = 0, dist = Infinity;
@@ -257,17 +287,43 @@
   function reelCount() {
     var c = document.querySelector("[data-reel-count]");
     if (!c || !track) return;
-    var n = track.children.length;
-    var i = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4 ? n - 1 : reelIndex();
+    var n = reelN();
+    var i = reelIndex() % n;
     c.textContent = pad2(i + 1) + " / " + pad2(n);
   }
   function reelGo(dir) {
     stopInline();
     var i = Math.max(0, Math.min(track.children.length - 1, reelIndex() + dir));
-    track.scrollTo({ left: track.children[i].offsetLeft - track.children[0].offsetLeft, behavior: "smooth" });
+    reelAnim(track.children[i].offsetLeft - track.children[0].offsetLeft);
+  }
+  // desplazamiento animado propio (el "smooth" del navegador falla con scroll-snap en algunos)
+  var animando = false;
+  function reelAnim(to) {
+    var from = track.scrollLeft, d = to - from, t0 = null, dur = 650;
+    if (Math.abs(d) < 1) return;
+    animando = true;
+    track.style.scrollSnapType = "none"; track.style.scrollBehavior = "auto";
+    function paso(t) {
+      if (t0 === null) t0 = t;
+      var k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 3);
+      track.scrollLeft = from + d * e;
+      if (k < 1) requestAnimationFrame(paso);
+      else { track.style.scrollSnapType = ""; track.style.scrollBehavior = ""; animando = false; reelWrap(); reelCount(); }
+    }
+    requestAnimationFrame(paso);
   }
   if (track) {
-    track.addEventListener("scroll", function () { window.requestAnimationFrame(reelCount); }, { passive: true });
+    var wrapT;
+    track.addEventListener("scroll", function () {
+      window.requestAnimationFrame(reelCount);
+      clearTimeout(wrapT); wrapT = setTimeout(reelWrap, 140);
+    }, { passive: true });
+    window.addEventListener("resize", function () {
+      if (!track.children.length) return;
+      var i = reelIndex() % reelN(), b = track.style.scrollBehavior; track.style.scrollBehavior = "auto";
+      track.scrollLeft = track.children[reelN() + i].offsetLeft - track.children[0].offsetLeft;
+      track.style.scrollBehavior = b;
+    });
     document.querySelector("[data-reel-prev]").addEventListener("click", function () { reelGo(-1); });
     document.querySelector("[data-reel-next]").addEventListener("click", function () { reelGo(1); });
     window.addEventListener("resize", reelCount);
@@ -308,7 +364,7 @@
     // si la diapositiva no está centrada, la trae a la vista
     if (track) {
       var r = slide.getBoundingClientRect(), tr = track.getBoundingClientRect();
-      if (r.left < tr.left - 2 || r.right > tr.right + 2) track.scrollTo({ left: slide.offsetLeft - track.children[0].offsetLeft, behavior: "smooth" });
+      if (r.left < tr.left - 2 || r.right > tr.right + 2) reelAnim(slide.offsetLeft - track.children[0].offsetLeft);
     }
   }
   if ("IntersectionObserver" in window && track) {
