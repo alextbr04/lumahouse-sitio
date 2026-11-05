@@ -462,3 +462,10 @@ h1,h2,h3{color:var(--ink)}
 .hero--min .hero__scroll{font-size:12px; letter-spacing:.18em; font-weight:500}
 .brands .eyebrow,.reel .eyebrow,.contact .eyebrow{color:var(--ink-soft)}
 body{color:#2B2A25}
+
+/* Teléfono: todas las piezas en formato vertical 9:16, del mismo tamaño */
+@media (max-width:620px){
+  .slide,.slide--vertical{width:62vw}
+  .slide__media{aspect-ratio:9/16}
+  .slide__media img{object-fit:cover}
+}
