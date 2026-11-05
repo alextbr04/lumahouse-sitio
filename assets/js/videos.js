@@ -24,8 +24,8 @@ window.LUMA_VIDEOS = {
   ],
   "videos": {
     "campanario-championship": {
-      "id": "opznqs0wvg",
-      "poster": "https://embed-ssl.wistia.com/deliveries/4a78d942897b0a745b8dc1cab46c5b9877632c4c.jpg?image_crop_resized=1600x900",
+      "id": "mz8r5sggdj",
+      "poster": "https://embed-ssl.wistia.com/deliveries/ad9d4a6be759f10d6ae444c2a22997594f325329.jpg?image_crop_resized=1600x900",
       "tipo": "wistia",
       "vertical": false
     },
@@ -35,29 +35,17 @@ window.LUMA_VIDEOS = {
       "tipo": "wistia",
       "vertical": true
     },
-    "copa-zibata": {
-      "id": "4gnpqr94se",
-      "tipo": "wistia"
-    },
     "el-bosque-country-club": {
       "id": "68ha3xv9mw",
       "poster": "https://embed-ssl.wistia.com/deliveries/fd99c2fc6851cc86b689923c6352fb8e4e06d709.jpg?image_crop_resized=1600x900",
       "tipo": "wistia",
       "vertical": false
     },
-    "hacienda-cantalagua": {
-      "id": "rb4k1pfw4l",
-      "tipo": "wistia"
-    },
     "maderas-golf-club": {
       "id": "5ert4go164",
       "poster": "https://embed-ssl.wistia.com/deliveries/252cb127c341486a6e1326d03a75443276410fd8.jpg?image_resize=1080",
       "tipo": "wistia",
       "vertical": true
-    },
-    "torneo-hormann": {
-      "id": "b3g24fy9vv",
-      "tipo": "wistia"
     },
     "torneo-maria-goretti": {
       "id": "s9ztptqb72",
