@@ -18,7 +18,7 @@
       "studio.title": "El lujo no siempre grita.",
       "studio.p1": "Luma House es una casa productora cinematográfica nacida en el golf. Filmamos el golf con el lenguaje del cine, y llevamos ese mismo criterio a hospitalidad, desarrollos inmobiliarios y marcas premium.",
       "studio.p2": "Creemos en la intención de cada toma. En la luz correcta. En el ritmo adecuado.",
-      "studio.p3": "<strong>No hacemos videos para llenar espacios.<br class=\"st-br\"> Creamos contenido que define cómo te perciben.</strong>",
+      "studio.p3": "<strong>No hacemos videos para llenar espacios.<br class=\"st-br\"> Creamos contenido que define<br class=\"st-br\"> cómo te perciben.</strong>",
       "services.eyebrow": "Servicios", "services.title": "Cuatro formas de trabajar con nosotros",
       "s1.t": "Películas de marca", "s1.p": "La pieza que define cómo se ve tu marca. Dirección, guion, rodaje, color y máster.",
       "s2.t": "Torneos y eventos", "s2.p": "Aftermovie, reels verticales y fotografía, entregados mientras el momento sigue vivo.",
