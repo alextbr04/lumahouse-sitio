@@ -213,8 +213,16 @@
         grid.innerHTML = list.map(cardHTML).join("");
         watch(grid);
       }
-      if (!linkBase) grid.querySelectorAll("a.card, a.slide").forEach(function (a) {
+      if (!linkBase) grid.querySelectorAll("a.card").forEach(function (a) {
         a.addEventListener("click", function (ev) { ev.preventDefault(); openById(a.dataset.id, true); });
+      });
+      // Carrusel: el video se reproduce ahí mismo, dentro de la diapositiva
+      grid.querySelectorAll("a.slide").forEach(function (a) {
+        a.addEventListener("click", function (ev) {
+          ev.preventDefault();
+          if (a.classList.contains("is-playing")) return;
+          playInline(a);
+        });
       });
     });
     document.querySelectorAll(".filters button").forEach(function (b) {
@@ -246,6 +254,7 @@
     c.textContent = pad2(i + 1) + " / " + pad2(n);
   }
   function reelGo(dir) {
+    stopInline();
     var i = Math.max(0, Math.min(track.children.length - 1, reelIndex() + dir));
     track.scrollTo({ left: track.children[i].offsetLeft - track.children[0].offsetLeft, behavior: "smooth" });
   }
@@ -255,6 +264,67 @@
     document.querySelector("[data-reel-next]").addEventListener("click", function () { reelGo(1); });
     window.addEventListener("resize", reelCount);
   }
+
+  /* ---------------- reproducción dentro del carrusel ----------------
+     Click en una pieza: se reproduce ahí mismo. Al deslizar a otra (o salir de pantalla)
+     se detiene y vuelve al inicio (se quita el video y regresa la portada). */
+  var playing = null;
+  function inlineSrc(p) {
+    var v = p.video || {};
+    if (v.tipo === "wistia" && v.id) return "https://fast.wistia.net/embed/iframe/" + encodeURIComponent(v.id) + "?autoPlay=true&playerColor=B08D57&doNotTrack=true&fullscreenButton=true&playbar=true&settingsControl=false&qualityControl=false";
+    if (v.tipo === "vimeo" && v.id) return "https://player.vimeo.com/video/" + encodeURIComponent(v.id) + "?autoplay=1&title=0&byline=0&portrait=0&badge=0&vimeo_logo=0&dnt=1";
+    if (v.tipo === "youtube" && v.id) return "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(v.id) + "?autoplay=1&rel=0&modestbranding=1&playsinline=1";
+    return "";
+  }
+  function stopInline() {
+    if (!playing) return;
+    var box = playing.querySelector(".slide__video");
+    if (box) box.remove();
+    playing.classList.remove("is-playing");
+    playing = null;
+  }
+  function playInline(slide) {
+    var p = CATALOGO.find(function (x) { return x.id === slide.dataset.id; });
+    if (!p) return;
+    var src = inlineSrc(p);
+    if (!src && !(p.video && p.video.tipo === "mp4" && p.video.src)) { openById(p.id, true); return; }
+    stopInline();
+    var box = document.createElement("div");
+    box.className = "slide__video" + (p.vertical ? " is-vertical" : "");
+    box.innerHTML = src
+      ? '<iframe src="' + esc(src) + '" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="' + esc(L(p.titulo)) + '"></iframe>'
+      : '<video src="' + esc(asset("video/" + p.video.src)) + '" controls autoplay playsinline></video>';
+    slide.querySelector(".slide__media").appendChild(box);
+    slide.classList.add("is-playing");
+    playing = slide;
+    // si la diapositiva no está centrada, la trae a la vista
+    if (track) {
+      var r = slide.getBoundingClientRect(), tr = track.getBoundingClientRect();
+      if (r.left < tr.left - 2 || r.right > tr.right + 2) track.scrollTo({ left: slide.offsetLeft - track.children[0].offsetLeft, behavior: "smooth" });
+    }
+  }
+  if ("IntersectionObserver" in window && track) {
+    // al deslizar el carrusel: si la pieza queda menos de la mitad a la vista, se detiene
+    var vio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (playing && e.target === playing && e.intersectionRatio < 0.5) stopInline(); });
+    }, { root: track, threshold: [0, 0.5, 1] });
+    // al bajar por la página: si sale por completo de la pantalla, también
+    var pio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (playing && e.target === playing && !e.isIntersecting) stopInline(); });
+    });
+    function observeAll() { Array.prototype.forEach.call(track.children, function (el) { vio.observe(el); pio.observe(el); }); }
+    new MutationObserver(observeAll).observe(track, { childList: true });
+    observeAll();
+  }
+  // calienta la conexión con Wistia al acercarse a una pieza, para que arranque al instante
+  var warmed = false;
+  function warm() {
+    if (warmed) return; warmed = true;
+    ["https://fast.wistia.net", "https://embed-ssl.wistia.com", "https://fast.wistia.com"].forEach(function (h) {
+      var l = document.createElement("link"); l.rel = "preconnect"; l.href = h; l.crossOrigin = ""; document.head.appendChild(l);
+    });
+  }
+  if (track) { track.addEventListener("pointerenter", warm, { once: true }); track.addEventListener("touchstart", warm, { once: true, passive: true }); }
 
   /* ---------------- reproductor ---------------- */
   var player = document.getElementById("player");
