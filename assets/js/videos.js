@@ -39,10 +39,6 @@ window.LUMA_VIDEOS = {
       "id": "4gnpqr94se",
       "tipo": "wistia"
     },
-    "el-bosque-country-club": {
-      "id": "22wuxpyj3k",
-      "tipo": "wistia"
-    },
     "hacienda-cantalagua": {
       "id": "rb4k1pfw4l",
       "tipo": "wistia"
