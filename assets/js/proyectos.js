@@ -30,7 +30,7 @@ window.LUMA_PROYECTOS = [
       es: "Siete días de torneo: aftermovie, reels verticales, fotografía y banco de contenido.",
       en: "Seven days of tournament coverage: aftermovie, vertical reels, photography and a content library."
     },
-    poster: "campanario-aereo.jpg", vertical: false, destacado: true,
+    poster: "campanario-moscati.jpg", vertical: false, destacado: true,
     video: { tipo: "vimeo", id: "" }
   },
   {
