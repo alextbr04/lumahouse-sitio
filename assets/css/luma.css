@@ -500,3 +500,6 @@ body{color:#2B2A25}
   .slide__video:not(.is-vertical) iframe,.slide__video:not(.is-vertical) video{height:auto; aspect-ratio:16/9}
   .slide.is-playing .slide__media img{filter:blur(22px) brightness(.7); transform:scale(1.15)}
 }
+/* frase del estudio: al centro */
+.statement{text-align:center; margin-left:auto; margin-right:auto}
+@media (max-width:860px){.statement{text-align:center; margin-left:auto; margin-right:auto}}
