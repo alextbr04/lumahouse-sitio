@@ -53,6 +53,12 @@ window.LUMA_VIDEOS = {
       "tipo": "wistia",
       "vertical": true
     },
+    "torneo-hormann": {
+      "id": "77eq1ddofp",
+      "poster": "https://embed-ssl.wistia.com/deliveries/37174a7b5e44a613036cce6798c4b465c3e60158.jpg?image_crop_resized=1600x900",
+      "tipo": "wistia",
+      "vertical": false
+    },
     "torneo-maria-goretti": {
       "id": "s9ztptqb72",
       "poster": "https://embed-ssl.wistia.com/deliveries/6ecbfa6cda38f5476b9499b21aee0950d30e7609.jpg?image_crop_resized=1600x900",
