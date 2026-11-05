@@ -47,6 +47,12 @@ window.LUMA_VIDEOS = {
       "tipo": "wistia",
       "vertical": false
     },
+    "hacienda-cantalagua": {
+      "id": "i5z2mjho6h",
+      "poster": "https://embed-ssl.wistia.com/deliveries/d7edf8697acf626b1fa2efd2c6d23432e8b4701c.jpg?image_crop_resized=1600x900",
+      "tipo": "wistia",
+      "vertical": false
+    },
     "maderas-golf-club": {
       "id": "5ert4go164",
       "poster": "https://embed-ssl.wistia.com/deliveries/252cb127c341486a6e1326d03a75443276410fd8.jpg?image_resize=1080",
