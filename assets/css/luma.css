@@ -372,7 +372,54 @@ body::after{content:''; position:fixed; inset:0; z-index:90; pointer-events:none
 .reveal{transform:translateY(28px); transition:opacity 1.2s ease, transform 1.2s cubic-bezier(.16,.8,.2,1)}
 .contact__row strong{font-variation-settings:"opsz" 60; letter-spacing:0}
 
+/* ==========================================================================
+   TODO EN BONE (2026-11-04): fondo off white, texto Ink. El reproductor sigue oscuro.
+   ========================================================================== */
+body{background:var(--bone); color:var(--charcoal)}
+body::after{opacity:.05}
+h1,h2,h3{color:var(--ink)}
+
+.nav.is-solid{background:rgba(243,239,230,.9); border-bottom-color:var(--rule-light)}
+.nav__links a{color:var(--ink-soft)}
+.nav__links a:hover,.nav__links a.is-active{color:var(--ink)}
+.lang{border-color:var(--rule-light)}
+.lang button{color:var(--ink-soft)}
+.lang button[aria-pressed="true"]{background:var(--ink); color:var(--bone)}
+.nav__burger span{background:var(--ink)}
+@media (max-width:860px){.nav__links{background:var(--bone)}.nav.is-open{background:var(--bone)}}
+
+.hero__media{background:var(--bone)}
+.hero h1{color:var(--ink)}
+.hero h1 em{color:var(--ink-soft)}
+.hero__sub{color:var(--ink-soft)}
+.hero__foot{border-top-color:var(--rule-light)}
+.hero__meta .mono{color:var(--ink-soft)}
+.hero__scroll{color:var(--ink)!important}
+
+.reel .eyebrow,.contact .eyebrow,.brands .eyebrow{color:var(--ink-soft)}
+.reel__count{color:var(--ink-soft); white-space:nowrap}
+.reel__btn{border-color:var(--rule-light); color:var(--ink-soft)}
+.reel__btn:hover{color:var(--ink); border-color:var(--ink-soft)}
+.slide h3,.card h3{color:var(--ink)}
+.slide__meta,.card__meta{color:var(--ink-soft)}
+.slide__media,.card__media{background:#E6E1D6}
+
+#estudio,.contact,.brands,.footer{border-top:1px solid var(--rule-light)}
+.contact h2{color:var(--ink)}
+.contact .lead{color:var(--ink-soft)!important}
+.contact__rows,.contact__row{border-color:var(--rule-light)}
+.contact__row strong{color:var(--ink)}
+.contact__row .arrow{color:var(--ink-soft)}
+.contact__row:hover .arrow{color:var(--ink)}
+
+.brands__track img{filter:brightness(0); opacity:.6}
+.brands__track li:hover img{opacity:.9}
+
+.footer p{color:var(--ink-soft)}
+
+.player{color:var(--bone)}
+.player h3{color:var(--bone)}
 
 /* Golf Course Services: las letras son chicas dentro del logo, va más alto */
-.brands__track img.marca--alta{height:66px; max-width:200px; margin:-5px 0}
-@media (max-width:620px){.brands__track img.marca--alta{height:52px; max-width:150px; margin:-4px 0}}
+.brands__track img.marca--alta{height:80px; max-width:230px; margin:-12px 0}
+@media (max-width:620px){.brands__track img.marca--alta{height:62px; max-width:170px; margin:-9px 0}}
