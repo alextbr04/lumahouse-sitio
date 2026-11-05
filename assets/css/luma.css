@@ -419,3 +419,7 @@ h1,h2,h3{color:var(--ink)}
 
 .player{color:var(--bone)}
 .player h3{color:var(--bone)}
+
+/* Golf Course Services: las letras son chicas dentro del logo, va más alto */
+.brands__track img.marca--alta{height:80px; max-width:230px; margin:-12px 0}
+@media (max-width:620px){.brands__track img.marca--alta{height:62px; max-width:170px; margin:-9px 0}}
