@@ -423,3 +423,42 @@ h1,h2,h3{color:var(--ink)}
 /* Golf Course Services: las letras son chicas dentro del logo, va más alto */
 .brands__track img.marca--alta{height:80px; max-width:230px; margin:-12px 0}
 @media (max-width:620px){.brands__track img.marca--alta{height:62px; max-width:170px; margin:-9px 0}}
+
+/* Verticales: sólo la pieza 9:16, sin laterales borrosos (misma altura que las horizontales) */
+.reel__track{align-items:flex-start}
+.slide--vertical{width:calc(min(80vw, 1180px) * 81 / 256)}
+.slide--vertical .slide__media{aspect-ratio:9/16}
+.slide--vertical .slide__media.is-vertical::before{display:none}
+.slide--vertical .slide__media.is-vertical img{object-fit:cover}
+.slide--vertical .slide__info{gap:14px}
+@media (max-width:620px){.slide--vertical{width:56vw}}
+
+/* ==========================================================================
+   MINIMAL (2026-11-05): logo grande al centro, portada sólo con la frase, todo gira alrededor de las piezas
+   ========================================================================== */
+:root{--nav-h:96px}
+.nav .wrap{display:grid; grid-template-columns:1fr auto 1fr; align-items:center}
+.nav__links{grid-column:1; grid-row:1; justify-self:start; margin-left:0; gap:32px}
+.nav__logo{grid-column:2; grid-row:1; justify-self:center}
+.nav__logo img{height:60px}
+.nav__right{grid-column:3; grid-row:1; justify-self:end}
+@media (max-width:1100px){.nav__links{gap:22px}.nav__links a{letter-spacing:.18em}}
+@media (max-width:860px){:root{--nav-h:80px}.nav__logo img{height:48px}.nav .wrap{grid-template-columns:1fr auto 1fr}.nav__links{grid-column:auto; grid-row:auto; justify-self:stretch; position:fixed; top:var(--nav-h); left:0; right:0; bottom:0; width:100vw; height:calc(100svh - var(--nav-h)); margin:0}}
+
+.hero--min{text-align:center; padding-top:calc(var(--nav-h) + clamp(48px, 7vw, 112px)); padding-bottom:clamp(48px, 6vw, 88px)}
+.hero--min h1{max-width:none; margin:0 auto clamp(28px, 3.5vw, 48px); font-size:clamp(40px, 6.4vw, 108px); line-height:1}
+.hero--min h1 em{display:block}
+.hero--min .hero__scroll{font-size:11px; letter-spacing:.24em}
+
+/* LEGIBILIDAD (2026-11-05): misma identidad (Fraunces · Inter · Plex Mono), más cuerpo y contraste */
+:root{--ink-soft:#47443C}
+.hero h1,.section h2,.service h3,.slide h3,.card h3,.statement,.plan__price,.plans__custom h3,.contact__row strong{font-weight:380}
+.hero h1 em{font-weight:340}
+.eyebrow{font-size:12.5px; letter-spacing:.2em}
+.mono{letter-spacing:.12em}
+.nav__links a{font-size:12px; letter-spacing:.16em; font-weight:500}
+.lang button{font-size:12px; letter-spacing:.14em}
+.slide__meta,.card__meta{font-size:12px; letter-spacing:.12em}
+.hero--min .hero__scroll{font-size:12px; letter-spacing:.18em; font-weight:500}
+.brands .eyebrow,.reel .eyebrow,.contact .eyebrow{color:var(--ink-soft)}
+body{color:#2B2A25}

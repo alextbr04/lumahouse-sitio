@@ -182,7 +182,7 @@
       : '<div class="card__ph"><span>' + esc(t("f." + p.categoria) || L(p.cliente)) + '</span></div>';
     var tag = p.bloqueado ? "div" : "a";
     var href = p.bloqueado ? "" : ' href="#' + p.id + '"';
-    return '<' + tag + ' class="slide' + (p.bloqueado ? " slide--locked" : "") + '" id="' + p.id + '" data-id="' + p.id + '"' + href + '>' +
+    return '<' + tag + ' class="slide' + (p.bloqueado ? " slide--locked" : "") + (p.vertical ? " slide--vertical" : "") + '" id="' + p.id + '" data-id="' + p.id + '"' + href + '>' +
       '<div class="slide__media' + (p.vertical && p.poster ? ' is-vertical" style="--bg:url(\'' + esc(/^https?:\/\//.test(p.poster) ? p.poster : asset("posters/" + p.poster)) + '\')"' : '"') + '>' + media +
       (p.bloqueado ? '<span class="card__badge">' + esc(t("card.soon")) + '</span>' : '<span class="slide__play" aria-hidden="true"></span>') + '</div>' +
       '<div class="slide__info"><span class="mono slide__num">' + pad2(i + 1) + '</span><div><h3>' + esc(L(p.titulo)) + '</h3><p class="slide__meta">' + esc(L(p.cliente)) + '</p></div></div>' +
