@@ -510,3 +510,8 @@ body{color:#2B2A25}
 .plan--pieza__text{font-size:clamp(16px, 1.3vw, 18px); line-height:1.6; color:var(--ink-soft); max-width:42ch}
 .plan--pieza .plan__list{margin:24px 0 32px}
 @media (max-width:760px){.plan--pieza{grid-template-columns:1fr; gap:8px}}
+/* frase del estudio: más ancha ("espacios." arriba) y con más cuerpo */
+.statement{max-width:28ch; font-weight:450}
+.statement{max-width:30ch; text-wrap:balance}
+.statement .st-br{display:none}
+@media (min-width:861px){.statement .st-br{display:inline}}
