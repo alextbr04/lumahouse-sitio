@@ -103,7 +103,7 @@ window.LUMA_PROYECTOS = [
       es: "Pieza vertical para Maderas Golf Club, con la golfista Debbie Llamas como talento.",
       en: "A vertical piece for Maderas Golf Club, featuring golfer Debbie Llamas."
     },
-    poster: "", vertical: true, destacado: false,
+    poster: "maderas-golf-club.jpg", vertical: true, laterales: true, destacado: false,   // laterales: en escritorio va en 16:9 con el mismo video borroso a los lados
     video: { tipo: "wistia", id: "" }
   },
   {
@@ -168,3 +168,8 @@ window.LUMA_PROYECTOS = [
     video: null
   }
 ];
+
+/* Ajustes a piezas que crea el monitor solo (videos.js → "nuevos"): portada propia, etc. */
+window.LUMA_AJUSTES = {
+  "comercial-luma-vertical-bts": { poster: "comercial-luma-vertical-bts.jpg", laterales: true }   // camarógrafo grabando junto al lago (seg. 24.8)
+};

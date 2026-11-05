@@ -90,7 +90,9 @@
      Con videos.js, sólo se ven las piezas con video en la carpeta (y las bloqueadas). */
   var GEN = window.LUMA_VIDEOS || null;
   var CATALOGO = (window.LUMA_PROYECTOS || []).concat(GEN && GEN.nuevos ? GEN.nuevos : []);
+  var AJ = window.LUMA_AJUSTES || {};
   CATALOGO.forEach(function (p) {
+    if (AJ[p.id]) Object.keys(AJ[p.id]).forEach(function (k) { p[k] = AJ[p.id][k]; });
     var v = GEN && GEN.videos ? GEN.videos[p.id] : null;
     if (v) {
       p.video = { tipo: v.tipo, id: v.id };
@@ -182,8 +184,8 @@
       : '<div class="card__ph"><span>' + esc(t("f." + p.categoria) || L(p.cliente)) + '</span></div>';
     var tag = p.bloqueado ? "div" : "a";
     var href = p.bloqueado ? "" : ' href="#' + p.id + '"';
-    return '<' + tag + ' class="slide' + (p.bloqueado ? " slide--locked" : "") + (p.vertical ? " slide--vertical" : "") + '" id="' + p.id + '" data-id="' + p.id + '"' + href + '>' +
-      '<div class="slide__media' + (p.vertical && p.poster ? ' is-vertical" style="--bg:url(\'' + esc(/^https?:\/\//.test(p.poster) ? p.poster : asset("posters/" + p.poster)) + '\')"' : '"') + '>' + media +
+    return '<' + tag + ' class="slide' + (p.bloqueado ? " slide--locked" : "") + (p.vertical && !p.laterales ? " slide--vertical" : "") + '" id="' + p.id + '" data-id="' + p.id + '"' + href + '>' +
+      '<div class="slide__media' + (p.vertical && p.poster ? ' is-vertical" style="--bg:url(\'' + esc(new URL(/^https?:\/\//.test(p.poster) ? p.poster : asset("posters/" + p.poster), location.href).href) + '\')"' : '"') + '>' + media +
       (p.bloqueado ? '<span class="card__badge">' + esc(t("card.soon")) + '</span>' : '<span class="slide__play" aria-hidden="true"></span>') + '</div>' +
       '<div class="slide__info"><span class="mono slide__num">' + pad2(i + 1) + '</span><div><h3>' + esc(L(p.titulo)) + '</h3><p class="slide__meta">' + esc(L(p.cliente)) + '</p></div></div>' +
       '</' + tag + '>';

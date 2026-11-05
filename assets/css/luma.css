@@ -469,3 +469,16 @@ body{color:#2B2A25}
   .slide__media{aspect-ratio:9/16}
   .slide__media img{object-fit:cover}
 }
+/* laterales borrosos: el mismo cuadro expandido, sin oscurecer tanto */
+.slide__media.is-vertical::before{filter:blur(40px) brightness(.82) saturate(1.05)}
+
+/* Nav (2026-11-05 b): logo grande a la izquierda; en escritorio el menú aparece al pasar el mouse por la barra */
+.nav .wrap{display:flex; justify-content:space-between}
+.nav__logo{order:0}
+.nav__links{order:1; margin-left:auto; margin-right:32px}
+.nav__right{order:2}
+@media (min-width:861px) and (hover:hover){
+  .nav__links{opacity:0; transform:translateY(-4px); pointer-events:none; transition:opacity .45s ease, transform .45s ease}
+  .nav:hover .nav__links,.nav:focus-within .nav__links{opacity:1; transform:none; pointer-events:auto}
+}
+@media (max-width:860px){.nav__links{margin:0; order:initial}}
