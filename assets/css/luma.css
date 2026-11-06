@@ -549,3 +549,31 @@ body{color:#2B2A25}
 @media (max-width:620px){.pieza__price span{display:block; margin:14px 0 0; vertical-align:baseline}.pieza__price{font-size:clamp(68px, 22vw, 96px)}}
 /* teléfono: la cabecera del carrusel cabe con su margen */
 @media (max-width:420px){.reel__head{gap:12px}.reel__nav{gap:8px}.reel__btn{width:38px; height:38px}.reel__count{margin-right:2px; letter-spacing:.08em}}
+
+/* ==========================================================================
+   MODO OSCURO AUTOMÁTICO (2026-11-06): si el iPhone/Mac está en oscuro, el sitio
+   invierte Ink y Bone. En modo claro se ve tal cual (Bone). Brass y Fairway no cambian.
+   ========================================================================== */
+@media (prefers-color-scheme: dark){
+  :root{
+    --ink:#F3EFE6; --bone:#14130F;
+    --ink-soft:#B9B4A8; --bone-soft:#5E5A51;
+    --charcoal:#DCD7CC;
+    --rule-light:rgba(243,239,230,.16); --rule-dark:rgba(20,19,15,.16);
+    color-scheme:dark;
+  }
+  body{color:#DCD7CC}
+  .nav.is-solid{background:rgba(20,19,15,.86)}
+  .slide__media,.card__media{background:#22211C}
+  .brands__track img{filter:none; opacity:.62}
+  .brands__track li:hover img{opacity:.95}
+  /* lo que siempre va oscuro con letra clara (reproductor, botones sobre video) */
+  .player,.player h3{color:#F3EFE6}
+  .player__close,.player__info p,.player__nav button,.player__empty{color:#B9B4A8}
+  .player__close:hover,.player__nav button:hover{color:#F3EFE6}
+  .player__nav button{border-color:rgba(243,239,230,.14)}
+  .slide__play::before{border-left-color:#F3EFE6}
+  .card__badge{color:#F3EFE6}
+  .slide__video,.slide__video iframe,.slide__video video{background:#0E0D0B}
+  .slide__media.is-vertical .slide__video.is-vertical{background:transparent}
+}
