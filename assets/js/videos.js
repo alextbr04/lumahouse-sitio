@@ -76,6 +76,12 @@ window.LUMA_VIDEOS = {
       "poster": "https://embed-ssl.wistia.com/deliveries/6ecbfa6cda38f5476b9499b21aee0950d30e7609.jpg?image_crop_resized=1600x900",
       "tipo": "wistia",
       "vertical": false
+    },
+    "zirandaro-lifestyle": {
+      "id": "1p7kirjfc4",
+      "poster": "https://embed-ssl.wistia.com/deliveries/3fe7a81177f610ece35e17d65ecd1f75d3e08906.jpg?image_crop_resized=1600x900",
+      "tipo": "wistia",
+      "vertical": false
     }
   }
 };
