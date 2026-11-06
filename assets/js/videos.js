@@ -41,12 +41,6 @@ window.LUMA_VIDEOS = {
       "tipo": "wistia",
       "vertical": false
     },
-    "documental-mariano": {
-      "id": "wf1hke3vv1",
-      "poster": "https://embed-ssl.wistia.com/deliveries/dc929cb7c37f56a8b7210da85eb39dc3eef3f8c5.jpg?image_crop_resized=1600x900",
-      "tipo": "wistia",
-      "vertical": false
-    },
     "el-bosque-country-club": {
       "id": "68ha3xv9mw",
       "poster": "https://embed-ssl.wistia.com/deliveries/fd99c2fc6851cc86b689923c6352fb8e4e06d709.jpg?image_crop_resized=1600x900",
@@ -74,12 +68,6 @@ window.LUMA_VIDEOS = {
     "torneo-maria-goretti": {
       "id": "s9ztptqb72",
       "poster": "https://embed-ssl.wistia.com/deliveries/6ecbfa6cda38f5476b9499b21aee0950d30e7609.jpg?image_crop_resized=1600x900",
-      "tipo": "wistia",
-      "vertical": false
-    },
-    "zirandaro-lifestyle": {
-      "id": "gs5kl6e3qw",
-      "poster": "https://embed-ssl.wistia.com/deliveries/bcbeca4be178ece30a56bc0772b22a640abb6032.jpg?image_crop_resized=1600x900",
       "tipo": "wistia",
       "vertical": false
     }
