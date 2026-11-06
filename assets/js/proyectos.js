@@ -78,7 +78,7 @@ window.LUMA_PROYECTOS = [
       es: "Torneo con causa de Casa María Goretti. Luma House fue patrocinador y produjo el aftermovie, los reels y la fotografía.",
       en: "Charity tournament for Casa María Goretti. Luma House was a sponsor and produced the aftermovie, reels and photography."
     },
-    poster: "", vertical: false, destacado: false,
+    poster: "maria-goretti-putt.jpg", vertical: false, destacado: false,
     video: { tipo: "vimeo", id: "" }
   },
   {
@@ -186,5 +186,6 @@ window.LUMA_ORDEN = [
   "zirandaro-lifestyle",
   "torneo-hormann",
   "torneo-maria-goretti",
+  "documental-mariano",
   "produccion-original"
 ];
