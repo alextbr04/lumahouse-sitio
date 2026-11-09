@@ -577,3 +577,6 @@ body{color:#2B2A25}
   .slide__video,.slide__video iframe,.slide__video video{background:#0E0D0B}
   .slide__media.is-vertical .slide__video.is-vertical{background:transparent}
 }
+
+/* Pieza de marca en pesos: la moneda va debajo de la cifra */
+.pieza__price span{display:block; margin:14px 0 0; vertical-align:baseline}
