@@ -597,3 +597,15 @@ body{color:#2B2A25}
 .legal a{text-decoration:underline; text-underline-offset:3px}
 .legal a:hover{color:var(--brass)}
 .legal .legal__fecha{font-family:var(--mono); font-size:12px; letter-spacing:.14em; text-transform:uppercase}
+
+/* Promoción de fin de año (21 nov 2026): precio de lista tachado + promo */
+.pieza__was{display:block; font-family:var(--mono); font-size:clamp(14px,1.4vw,20px); letter-spacing:.14em; font-weight:400; color:var(--bone-soft); text-decoration:line-through; text-decoration-color:var(--brass); text-decoration-thickness:1px; margin-bottom:14px; line-height:1}
+.pieza__promo{font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--brass); margin-top:22px; max-width:46ch; line-height:1.7}
+.pieza__note{font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--bone-soft); margin-top:22px; line-height:1.7}
+
+/* EN: sin promoción de fin de año (Alejandro, 21 nov 2026 11:14) */
+html[lang="en"] .pieza__promo{display:none}
+
+/* Móvil: la unidad («MXN + IVA» / «USD + VAT») no se parte; si no cabe, baja completa (21 nov 2026) */
+.plan__price span,.pieza__price span{white-space:nowrap}
+@media (max-width:480px){.plan__price span{display:inline-block; margin-left:0; margin-top:10px}}

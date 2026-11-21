@@ -6,6 +6,15 @@
 (function () {
   "use strict";
 
+  /* ---------------- PRECIOS: único lugar donde se cambian las cifras ----------------
+     Todos van SIN IVA y el IVA se escribe siempre aparte (+ IVA / + VAT).
+     Si cambian los montos, edita sólo este objeto; luego pon las mismas cifras en el texto de
+     respaldo de index.html (data-i18n="p1.price", "p2.price", "p3.price") y sube el ?v= del JS. */
+  var PRECIOS = {
+    es: { pieza_lista: "$24,000", pieza_promo: "$10,000", esencial: "$22,000", premium: "$36,000", moneda: "MXN + IVA" },
+    en: { pieza: "$1,500", esencial: "$1,800", premium: "$2,500", moneda: "USD + VAT" }
+  };
+
   /* ---------------- textos ---------------- */
   var DICT = {
     es: {
@@ -27,12 +36,12 @@
       "plans.eyebrow": "Paquetes", "plans.h": "Empieza por tu pieza de marca", "plans.title": "Contenido cada mes",
       "plans.sub": "Producción continua para tus redes, con el mismo criterio cinematográfico.",
       "plans.per": "al mes · contrato de 6 meses", "plans.cur": "USD + IVA", "plans.videos": "videos", "plans.carousels": "carruseles", "plans.carousel": "carrusel",
-      "p1.price": "$16,000 <span>MXN + IVA</span>", "p2.price": "$26,000 <span>MXN + IVA</span>", "p3.price": "$18,000 <span>MXN + IVA</span>", "plans.cta": "Lo quiero",
+      "p1.price": PRECIOS.es.esencial + " <span>" + PRECIOS.es.moneda + "</span>", "p2.price": PRECIOS.es.premium + " <span>" + PRECIOS.es.moneda + "</span>", "p3.price": "<small class=\"pieza__was\">" + PRECIOS.es.pieza_lista + " " + PRECIOS.es.moneda + "</small>" + PRECIOS.es.pieza_promo + " <span>" + PRECIOS.es.moneda + "</span>", "plans.cta": "Lo quiero",
       "p1.name": "Esencial", "p2.name": "Premium", "nav.plans": "Paquetes",
       "p3.name": "Pieza de marca", "p3.per": "paquete para arrancar · pago único",
-      "p3.text": "Una producción cinematográfica: el video que representa a tu marca, más reels del mismo día de grabación.",
-      "p3.video": "video cinematográfico de 60 a 90 segundos", "p3.reels": "reels del día de grabación",
-      "p3.wa": "Hola, me interesa la Pieza de marca de Luma House (un video cinematográfico de 60 a 90 segundos y 4 reels).",
+      "p3.text": "Una producción cinematográfica: el video que representa a tu marca, más 2 reels por cada grabación.", "p3.promo": "Promoción de fin de año · contrata y paga antes del 31 de diciembre de 2026 · el rodaje puede ser después", "p3.pago": "Pago del 100 % por anticipado, antes de grabar",
+      "p3.video": "video cinematográfico de 60 a 90 segundos", "p3.reels": "reels por grabación",
+      "p3.wa": "Hola, me interesa la Pieza de marca de Luma House (un video cinematográfico de 60 a 90 segundos y 2 reels por grabación) con la promoción de fin de año.",
       "p1.wa": "Hola, me interesa el paquete Esencial de Luma House (6 videos y 1 carrusel al mes).",
       "p2.wa": "Hola, me interesa el paquete Premium de Luma House (12 videos y 2 carruseles al mes).",
       "custom.eyebrow": "Por proyecto", "custom.title": "¿Un proyecto en específico?",
@@ -71,12 +80,12 @@
       "plans.eyebrow": "Packages", "plans.h": "Start with your brand piece", "plans.title": "Content, every month",
       "plans.sub": "Ongoing production for your social channels, with the same cinematic eye.",
       "plans.per": "per month · 6-month contract", "plans.cur": "USD + VAT", "plans.videos": "videos", "plans.carousels": "carousels", "plans.carousel": "carousel",
-      "p1.price": "$1,500 <span>USD + VAT</span>", "p2.price": "$2,000 <span>USD + VAT</span>", "p3.price": "$1,000 <span>USD + VAT</span>", "plans.cta": "I want it",
+      "p1.price": PRECIOS.en.esencial + " <span>" + PRECIOS.en.moneda + "</span>", "p2.price": PRECIOS.en.premium + " <span>" + PRECIOS.en.moneda + "</span>", "p3.price": PRECIOS.en.pieza + " <span>" + PRECIOS.en.moneda + "</span>", "plans.cta": "I want it",
       "p1.name": "Essential", "p2.name": "Premium", "nav.plans": "Packages",
       "p3.name": "Brand piece", "p3.per": "starter package · one-time payment",
-      "p3.text": "A cinematic production: the film that represents your brand, plus reels from the same shoot day.",
-      "p3.video": "cinematic film, 60 to 90 seconds", "p3.reels": "reels from the shoot day",
-      "p3.wa": "Hi, I'm interested in Luma House's Brand piece (one 60–90 second cinematic film and 4 reels).",
+      "p3.text": "A cinematic production: the film that represents your brand, plus 2 reels for every shoot.", "p3.pago": "100% paid upfront, before filming",
+      "p3.video": "cinematic film, 60 to 90 seconds", "p3.reels": "reels per shoot",
+      "p3.wa": "Hi, I'm interested in Luma House's Brand piece (one 60–90 second cinematic film and 2 reels per shoot).",
       "p1.wa": "Hi, I'm interested in Luma House's Essential package (6 videos and 1 carousel per month).",
       "p2.wa": "Hi, I'm interested in Luma House's Premium package (12 videos and 2 carousels per month).",
       "custom.eyebrow": "Per project", "custom.title": "Have a specific project in mind?",
