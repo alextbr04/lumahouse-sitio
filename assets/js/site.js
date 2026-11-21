@@ -49,7 +49,8 @@
       "contact.eyebrow": "Contacto", "contact.title": "Cuéntanos qué quieres comunicar.",
       "contact.sub": "Diseñamos la pieza, la producimos con criterio cinematográfico y la entregamos lista para tus canales.",
       "contact.wa": "WhatsApp", "contact.mail": "Correo",
-      "footer.line": "Luma House · Casa productora · México"
+      "footer.line": "Luma House · Casa productora · México",
+      "legal.rfc": "RFC", "legal.dom": "Domicilio fiscal", "legal.privacy": "Aviso de privacidad"
     },
     en: {
       "nav.work": "Work", "nav.studio": "Studio", "nav.services": "Services", "nav.contact": "Contact",
@@ -92,7 +93,8 @@
       "contact.eyebrow": "Contact", "contact.title": "Tell us what you want to say.",
       "contact.sub": "We design the piece, shoot it with a cinematic eye and deliver it ready for your channels.",
       "contact.wa": "WhatsApp", "contact.mail": "Email",
-      "footer.line": "Luma House · Production house · Mexico"
+      "footer.line": "Luma House · Production house · Mexico",
+      "legal.rfc": "Tax ID (RFC)", "legal.dom": "Registered address", "legal.privacy": "Privacy notice"
     }
   };
 
